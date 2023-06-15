@@ -20,6 +20,7 @@ function addMovie(event) {
 function deleteMovie(event) {
     event.target.parentNode.remove()
     message.textContent = 'Movie removed from list.'
+    revealMessage()
 }
 
 function crossOffMovie(event) {
@@ -29,6 +30,16 @@ function crossOffMovie(event) {
     } else {
         message.textContent = 'Movie added back.'
     }
+    revealMessage()
+}
+
+function hide() {
+    message.classList.add('hide')
+}
+
+function revealMessage() {
+    message.classList.remove('hide')
+    setTimeout(hide, 1000)
 }
 
 document.querySelector('form').addEventListener('submit',addMovie)
